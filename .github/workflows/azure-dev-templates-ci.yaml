@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Build Bicep for linting
-        uses: azure/CLI@v2
+        uses: azure/CLI@v3
         with:
           inlineScript: |
             export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
@@ -50,7 +50,7 @@ jobs:
           PSRULE_CONFIGURATION_AZURE_BICEP_FILE_EXPANSION_TIMEOUT: '30'
 
       - name: Upload results to security tab
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@v4.35.1
         if: github.repository == 'Azure-Samples/Cosmic-Food-RAG-app'
         with:
           sarif_file: reports/ps-rule-results.sarif
